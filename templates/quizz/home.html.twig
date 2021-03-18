@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Quizz Glossaire{% endblock %}
+
+{% block body %}
+
+<div class="bg-light text-center my-3 p-4 border">
+        <h1>Quelle est la définition de ... ?</h1>
+</div>
+
+<section class="p-4 bg-light border text-center">
+
+        <h3>{{ singleExpression.name }}</h3>
+        <hr>
+
+        <p class="text-justify" style="display: none">{{ singleExpression.definition }}</p>
+
+        <button type="submit" class="btn btn-danger btn-sm" id="toggle" name="show">Afficher/Cacher définition</button>
+        <button type="submit" onClick="window.location.reload();" class="btn btn-success btn-sm">Expression suivante >></button>
+
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+        <script src="{{ asset('script.js') }}"></script>
+{% endblock %}

@@ -5,15 +5,38 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+        <link rel="stylesheet" href="https://bootswatch.com/4/simplex/bootstrap.min.css">
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
-
-        {% block javascripts %}
-            {#{{ encore_entry_script_tags('app') }}#}
-        {% endblock %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div class="container">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border mt-3">
+                <a class="navbar-brand text-uppercase text-success" href="{{ path('home') }}">Le quizz du glossaire web</a>
+                <small>Prouve-nous que tu mérites ton diplôme !</small>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('home') }}">Le Quizz</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('expressions') }}">Les Expressions</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            {% block body %}{% endblock %}
+
+        </div>
+
+        {% block javascripts %}{% endblock %}
     </body>
 </html>

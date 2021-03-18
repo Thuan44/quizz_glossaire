@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme expressionForm 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Quizz Glossaire{% endblock %}
+
+{% block body %}
+
+    <h1 class="bg-light text-center my-3 p-4 border">Gestion des expressions à deviner</h1>
+
+    <section class="p-4 bg-light border text-center">
+
+        <h3>Ajouter une expression</h3>
+        <hr>
+
+        {{ form_start(expressionForm) }}
+
+        {{ form_row(expressionForm.name, {'attr': {'placeholder': "Nom de l'expression"}}) }}
+        {{ form_row(expressionForm.definition, {'attr': {'placeholder': "Définition de l'expression"}}) }}
+
+        <button type="submit" class="btn btn-success">Ajouter Expression</button>
+
+        {{ form_end(expressionForm) }}
+
+    </section>
+
+    <section class="p-4 bg-light border text-center mt-3">
+
+        <h3>Liste des expressions</h3>
+        <hr>
+
+        <div class="row">
+
+            {% for expression in expressionList %}
+                <div class="col-2 mb-3">
+                    {{ expression.name }}
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+{% endblock %}
